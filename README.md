@@ -1,2 +1,7 @@
-# animate-server
-Backend for Animate web app
+Animate backend
+=====
+
+## Get Started
+1. First step
+1. Second step
+...and so on.
