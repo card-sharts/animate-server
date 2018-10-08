@@ -1,15 +1,10 @@
 const { assert } = require('chai');
-const request = require('./request');
+const { request, checkOk } = require('./request');
 const { dropCollection } = require('./_db');
 
-const checkOk = res => {
-    assert.equal(res.status, 200, 'expected 200 http status code');
-    return res;
-};
-
 describe('Essays API', () => {
-
     beforeEach(() => dropCollection('essays'));
+    beforeEach(() => dropCollection('photos'));
 
     const testEssay = {
         title: 'My Wedding',
@@ -19,7 +14,12 @@ describe('Essays API', () => {
         q4: 'My greatest success was getting some wicked sick photos.',
         bangerUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg',
         tags: ['black & white', 'same-sex'],
-        publishDate: '18-10-08'
+        publishDate: '18-10-08',
+        photos: [
+            {
+                photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg'
+            }
+        ]
     };
 
     let essay1;
@@ -30,12 +30,13 @@ describe('Essays API', () => {
             .send(testEssay)
             .then(checkOk)
             .then(({ body }) => {
-                essay1 = body;
+                essay1 = body.essay;
             });
     });
     
     it('can post an essay', () => {
         assert.isOk(essay1);
+        assert.isNotOk(essay1.photos);
     });
 
     it('gets an array on for a get all', () => {
