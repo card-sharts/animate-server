@@ -3,8 +3,8 @@ const { request, checkOk } = require('./request');
 const { dropCollection } = require('./_db');
 
 describe('Essays API', () => {
-
     beforeEach(() => dropCollection('essays'));
+    beforeEach(() => dropCollection('photos'));
 
     const testEssay = {
         title: 'My Wedding',
@@ -14,7 +14,12 @@ describe('Essays API', () => {
         q4: 'My greatest success was getting some wicked sick photos.',
         bangerUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg',
         tags: ['black & white', 'same-sex'],
-        publishDate: '18-10-08'
+        publishDate: '18-10-08',
+        photos: [
+            {
+                photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg'
+            }
+        ]
     };
 
     let essay1;
