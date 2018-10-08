@@ -7,7 +7,6 @@ describe('Photo model', () => {
         const data = {
             essayId: Types.ObjectId(),
             caption: 'Coolest photo ever',
-            tags: ['blue', 'animals', 'cat'],
             photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564489/ii2icezuxx9xqfnnnmnv.jpg'
         };
 
