@@ -30,12 +30,13 @@ describe('Essays API', () => {
             .send(testEssay)
             .then(checkOk)
             .then(({ body }) => {
-                essay1 = body;
+                essay1 = body.essay;
             });
     });
     
     it('can post an essay', () => {
         assert.isOk(essay1);
+        assert.isNotOk(essay1.photos);
     });
 
     it('gets an array on for a get all', () => {
