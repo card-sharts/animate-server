@@ -3,6 +3,7 @@ const { request, checkOk } = require('./request');
 const { dropCollection } = require('./_db');
 
 describe('Essays API', () => {
+    
     beforeEach(() => dropCollection('essays'));
     beforeEach(() => dropCollection('photos'));
 
