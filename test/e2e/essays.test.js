@@ -126,4 +126,14 @@ describe('Essays API', () => {
                 assert.equal(body[1].tags.length, 1);
             });
     });
+
+    it('gets a single essay and the associated photos/refs', () => {
+        return request
+            .get(`/api/essays/${essay1._id}`)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.equal(body.q4, 'My greatest success was getting some wicked sick photos.');
+                assert.deepEqual(body.photos, { photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg' });
+            });
+    });
 });
