@@ -3,11 +3,12 @@ const { request, checkOk } = require('./request');
 const { dropCollection } = require('./_db');
 
 describe('Essays API', () => {
-    
+
     beforeEach(() => dropCollection('essays'));
     beforeEach(() => dropCollection('photos'));
+    beforeEach(() => dropCollection('references'));
 
-    const testEssay1 = {
+    const testSubmission1 = {
         title: 'My Wedding',
         q1: 'My approach to wedding photography is to get wicked sick photos.',
         q2: 'Context of this wedding is that these people love each other, which is wicked sick.',
@@ -20,10 +21,20 @@ describe('Essays API', () => {
             {
                 photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg'
             }
+        ],
+        references: [
+            {
+                category: 'Florist',
+                websiteUrl: 'www.dopeflowers.com'
+            },
+            {
+                category: 'DJ',
+                websiteUrl: 'www.dopedj.com'
+            }
         ]
     };
 
-    const testEssay2 = {
+    const testSubmission2 = {
         title: 'BEST WEDDING',
         q1: 'I only shoot the best of the best.',
         q2: 'Beautiful dresses make me happy.',
@@ -47,7 +58,7 @@ describe('Essays API', () => {
     beforeEach(() => {
         return request
             .post('/api/essays')
-            .send(testEssay1)
+            .send(testSubmission1)
             .then(checkOk)
             .then(({ body }) => {
                 assert.isDefined(body.photos);
@@ -58,7 +69,7 @@ describe('Essays API', () => {
     beforeEach(() => {
         return request
             .post('/api/essays')
-            .send(testEssay2)
+            .send(testSubmission2)
             .then(checkOk)
             .then(({ body }) => {
                 assert.isDefined(body.photos);
