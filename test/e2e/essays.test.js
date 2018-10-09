@@ -50,6 +50,16 @@ describe('Essays API', () => {
             {
                 photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajrerr34v9z7rogs4r3j.jpg'
             }
+        ],
+        references: [
+            {
+                category: 'Florist',
+                websiteUrl: 'www.theBestflowers.com'
+            },
+            {
+                category: 'DJ',
+                websiteUrl: 'www.theBestdj.com'
+            }
         ]
     };
 
