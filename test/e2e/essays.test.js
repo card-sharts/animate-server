@@ -5,8 +5,9 @@ const { dropCollection } = require('./_db');
 describe('Essays API', () => {
     beforeEach(() => dropCollection('essays'));
     beforeEach(() => dropCollection('photos'));
+    beforeEach(() => dropCollection('references'));
 
-    const testEssay = {
+    const testSubmission = {
         title: 'My Wedding',
         q1: 'My approach to wedding photography is to get wicked sick photos.',
         q2: 'Context of this wedding is that these people love each other, which is wicked sick.',
@@ -19,24 +20,38 @@ describe('Essays API', () => {
             {
                 photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg'
             }
+        ],
+        references: [
+            {
+                category: 'Florist',
+                websiteUrl: 'www.dopeflowers.com'
+            },
+            {
+                category: 'DJ',
+                websiteUrl: 'www.dopedj.com'
+            }
         ]
     };
 
-    let essay1;
+    let essay, photos, references;
 
     beforeEach(() => {
         return request
             .post('/api/essays')
-            .send(testEssay)
+            .send(testSubmission)
             .then(checkOk)
             .then(({ body }) => {
-                essay1 = body.essay;
+                essay = body.essay;
+                photos = body.photos;
+                references = body.references;
             });
     });
     
-    it('can post an essay', () => {
-        assert.isOk(essay1);
-        assert.isNotOk(essay1.photos);
+    it('can post a full submission', () => {
+        assert.isOk(essay);
+        assert.isOk(photos);
+        assert.isOk(references);
+        assert.isNotOk(essay.photos);
     });
 
     it('gets an array on for a get all', () => {
