@@ -67,6 +67,7 @@ describe('Essays API', () => {
                 essay1 = body.essay;
             });
     });
+    
     beforeEach(() => {
         return request
             .post('/api/essays')
