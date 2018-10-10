@@ -126,7 +126,7 @@ describe('Essays API', () => {
             .then(checkOk)
             .then(({ body }) => {
                 assert.equal(body.q4, essay1.q4);
-                assert.deepEqual(body.photos, { photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg' });
+                assert.deepEqual(body.photos[0].photoUrl, 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg');
             });
     });
 });
