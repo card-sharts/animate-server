@@ -125,7 +125,7 @@ describe('Essays API', () => {
             .get(`/api/essays/${essay1._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.equal(body.q4, 'My greatest success was getting some wicked sick photos.');
+                assert.equal(body.q4, essay1.q4);
                 assert.deepEqual(body.photos, { photoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg' });
             });
     });
