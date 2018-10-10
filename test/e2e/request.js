@@ -14,9 +14,15 @@ const checkOk = res => {
     return res;
 };
 
+const check400 = res => {
+    assert.equal(res.status, 400, 'expected 400 http status code');
+    return res;
+};
+
 after(() => server.close());
 
 module.exports = {
     request,
-    checkOk
+    checkOk,
+    check400
 };
