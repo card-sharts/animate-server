@@ -19,10 +19,19 @@ const check400 = res => {
     return res;
 };
 
+const save = (path, data) => {
+    return request
+        .post(`/api/${path}`)
+        .send(data)
+        .then(checkOk)
+        .then(({ body }) => body);
+};
+
 after(() => server.close());
 
 module.exports = {
     request,
     checkOk,
-    check400
+    check400,
+    save
 };
