@@ -4,7 +4,7 @@ const testSubmission1 = {
     q2: 'Context of this wedding is that these people love each other, which is wicked sick.',
     q3: 'The biggest challenge was getting wicked sick photos.',
     q4: 'My greatest success was getting some wicked sick photos.',
-    bangerUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg',
+    featuredPhotoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg',
     tags: ['black & white', 'same-sex'],
     publishDate: '18-10-08',
     photos: [
@@ -30,7 +30,7 @@ const testSubmission2 = {
     q2: 'Beautiful dresses make me happy.',
     q3: 'Having to not drink at the open bar.',
     q4: 'Every wedding is a great success.',
-    bangerUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg',
+    featuredPhotoUrl: 'https://res.cloudinary.com/dkbja8aak/image/upload/v1537564524/ajcjc8itv9z7rogs4r3j.jpg',
     tags: ['jewish'],
     publishDate: '18-10-12',
     photos: [
